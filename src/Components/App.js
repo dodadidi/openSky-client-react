@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import NavBar from './NavBar';
-import Main from './Main';
+// import FlightsBoard from './Flights/FlightsBoard';
+import FeedbacksBoard from './Feedbacks/FeedbacksBoard';
 import Title from './Title';
+
 
 class App extends Component{
     render(){
@@ -9,7 +11,8 @@ class App extends Component{
             <div className="background">
                 <NavBar/>
                 <Title/>
-                <Main/>
+                {/* <FlightsBoard/> */}
+                <FeedbacksBoard/>
             </div>
         );
     }

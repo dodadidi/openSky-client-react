@@ -108,28 +108,28 @@ table {
   font-size: 1.125rem;
 }
 
-tbody {
-	background-color: #F1F1F1;
-}
 
 td {
-	text-align: center;
+  background-color: #F1F1F1;
+	text-align: left;
 }
 
 th {
-	text-align: center;
+	text-align: left;
 }
 
-
+.like{
+  text-align: center;
+}
 /* **************** FORM *****************/
 
-/* .form{
+.form{
   position: absolute;
-  width: 400px;
-  height: 284px;
+  width: 200px;
+  height: 184px;
   left: 800px;
   top: 116px;
-} */
+}
 
 
 

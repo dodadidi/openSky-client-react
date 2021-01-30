@@ -7,8 +7,8 @@ import { Icon } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-//TODO: 1. conditionslike
-//      2. buy buttons - functionality
+//TODO: 1. conditions 
+//      2. like buy buttons - functionality
 //      3. delete button - fix visibility 
 
 class Flight extends Component {
@@ -25,10 +25,8 @@ class Flight extends Component {
 
     renderUI() {
         return (
-            <div style={{   marginBottom: "14px"}}>
-                <div>
-                <tr>
-                <td>
+                <tr style={{   marginBottom: "14px"}}>
+                    <td>
                         {this.props.currentFlight.flight_number}
                     </td>
                     <td>
@@ -50,17 +48,14 @@ class Flight extends Component {
                         {this.props.currentFlight.price}
                     </td>
                     {/* TODO: IF MANAGER DELETE ELSE LIKE+BUY*/}
-                    <IconButton aria-label="delete" className="btn btn-primary" onClick={this.delete}>
-                        <DeleteIcon />
-                    </IconButton>
+                    <td>
+                        <IconButton aria-label="delete" className="btn btn-primary" onClick={this.delete}>
+                            <DeleteIcon />
+                        </IconButton>
+                    </td>
                     <td><Icon><FavoriteBorderIcon/></Icon></td>
                     <td><Icon><ShoppingCartIcon/></Icon></td>
-                </tr>
-                     {/* <IconButton aria-label="delete" className="btn btn-primary" style={{backgroundColor:'#ED4D47',color:'white',right:'19px',}} onClick={this.delete}>
-                        <DeleteIcon />
-                    </IconButton> */}
-                </div>
-            </div>            
+                </tr>     
         )
     }
 

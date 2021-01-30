@@ -20,16 +20,16 @@ class FlightsList extends Component {
                 <Table className='table'>
                 <thead>
                     <tr>
-                        <th>flight_number departure_date departure_city landing_city company_name stops price</th>
-                        {/* <th>departure_date</th>
+                        <th>flight_number</th>
+                        <th>departure_date</th>
                         <th>departure_city</th>
                         <th>landing_city</th>
                         <th>company_name</th>
                         <th>stops</th>
-                        <th>price</th> */}
+                        <th>price</th>
                     </tr>
                 </thead>
-                    <tbody>{ this.props.list.map(this.eachFlight)}</tbody>
+                    { this.props.list.map(this.eachFlight)}
                 </Table>
             </div>
         )

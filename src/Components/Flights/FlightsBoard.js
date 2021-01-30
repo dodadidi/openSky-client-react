@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import flightsData from '../Data/flights.json';
+import flightsData from '../../Data/flights.json';
 import FlightsList from './FlightsList';
-// import NewFlight from './NewTransportForm';
 
-class Main extends Component{
+class FlightsBoard extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -12,7 +11,6 @@ class Main extends Component{
         }
     this.delete = this.delete.bind(this);
     
-
     }
     componentDidMount(){
         flightsData.map(item => this.add({
@@ -58,9 +56,10 @@ class Main extends Component{
     render(){
         return (
             <div>
+            {/* TODO: ADD SEARCH FORM COMPONENT */}
                 <FlightsList list={this.state.flights} onDelete={this.delete}></FlightsList>
             </div>
         );
     }
 }
-export default Main;
+export default FlightsBoard;
