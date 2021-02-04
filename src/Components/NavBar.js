@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, Nav} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 
 class NavBar extends Component {
     render() {
@@ -14,6 +14,11 @@ class NavBar extends Component {
                     <Nav.Link href="#">Feedbacks</Nav.Link>
                     <Nav.Link href="#">My Flights</Nav.Link>
                     <Nav.Link href="#">My Favr💗its</Nav.Link>
+                    {/* if manager */}
+                    <NavDropdown title="Statistics" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="#">Flights</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Feedbacks</NavDropdown.Item>
+                    </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

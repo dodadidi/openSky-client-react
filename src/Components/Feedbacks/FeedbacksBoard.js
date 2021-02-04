@@ -77,6 +77,7 @@ class FeedbacksBoard extends Component{
         return (
             <div>
                 {/* TODO: SEARCH */}
+                {/* <FlightFiltter></FlightFiltter> */}
                 <FeedbacksList list={this.state.feedbacks} onDelete={this.delete} onSelectedUpdate={this.transportSelected}></FeedbacksList>
                 <NewFeedback selectedFeedback={this.state.selectedFeedback} onSave={this.add} onUpdate={this.update}></NewFeedback>
             </div>

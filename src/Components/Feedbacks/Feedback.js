@@ -18,7 +18,7 @@ class Feedback extends Component {
 
     edit(){
       
-       this.props.onSelected(this.props.currentTransport)
+       this.props.onSelected(this.props.currentFeedback)
     }
 
     delete(e){

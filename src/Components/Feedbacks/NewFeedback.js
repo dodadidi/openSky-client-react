@@ -10,11 +10,11 @@ class NewFeedback extends Component {
         this.state = {
             updating: false,
             id:  this.props.selectedFeedback ? this.props.selectedFeedback.id : null,
-            _user_id:  this.props.selectedFeedback ? this.props.selectedFeedback._user_id : null,
+            _user_id:  this.props.selectedFeedback ? this.props.selectedFeedback._user_id : " ",
             company_name : this.props.selectedFeedback ? this.props.selectedFeedback.company_name : '',
             published_date :  this.props.selectedFeedback ? this.props.selectedFeedback.published_date : '',
             feedback :  this.props.selectedFeedback ? this.props.selectedFeedback.feedback : '',
-            rating :  this.props.selectedFeedback ? this.props.selectedFeedback.rating : ''
+            rating :  this.props.selectedFeedback ? this.props.selectedFeedback.rating : '',
         }
 
         this.save = this.save.bind(this);
@@ -26,10 +26,10 @@ class NewFeedback extends Component {
         if(prevProps.selectedFeedback !== this.props.selectedFeedback){
             this.setState({id:this.props.selectedFeedback.id,
                 _user_id:this.props.selectedFeedback._user_id,
+                company_name:this.props.selectedFeedback.company_name,
                 feedback:this.props.selectedFeedback.feedback,
-                rating :  this.props.selectedFeedback.rating,
-                published_date :  this.props.selectedFeedback.published_date
-                
+                rating:this.props.selectedFeedback.rating,
+                published_date:this.props.selectedFeedback.published_date
             });
         }
       
@@ -61,7 +61,6 @@ class NewFeedback extends Component {
                 published_date:this.state.published_date,
                 rating:this.state.rating});
         }
-    
     }
 
     onInputChange(event){
@@ -73,7 +72,7 @@ class NewFeedback extends Component {
     textField={
         width: '300px',
         backgroundColor: 'white',
-        marginBottom:'14px',
+        marginBottom:'10px',
         borderRadius: '5px',
         fontStyle: 'normal',
         fontWeight: '700',
@@ -82,7 +81,6 @@ class NewFeedback extends Component {
 
     buttonForm={
         backgroundColor: '#440047',
-        border: '0',
         color: 'White',
         borderRadius: '5px',
         width: '60px',
@@ -104,14 +102,15 @@ class NewFeedback extends Component {
             <div>
             <form className="form">
                 <div>
-                <TextField style={this.textField} error={true }  id="outlined-basic" label="Date" name="date"  variant="outlined" onChange={this.onInputChange} value={ published_date } />
+                <TextField style={this.textField} error={ true } id="outlined-basic" label="Date" name="published_date"  variant="outlined" onChange={this.onInputChange} value={ published_date } />
                 </div>
                 <div>
-                <TextField style={this.textField} error={true } id="outlined-basic" label="Company Name" name="company-name" variant="outlined" onChange={this.onInputChange} value={ company_name }   />
+                <TextField style={this.textField} error={ true } id="outlined-basic" label="Company Name" name="company_name" variant="outlined" onChange={this.onInputChange} value={ company_name }   />
                 </div>
                 <div>
                 <TextField style={this.textField} error={ true } id="outlined-basic" label="Feedback" name="feedback" variant="outlined" onChange={this.onInputChange} value= { feedback }  />
-                </div>                <div>
+                </div>
+                <div>
                 <TextField style={this.textField} error={ true } id="outlined-basic" label="Rating" name="rating" variant="outlined" onChange={this.onInputChange} value= { rating }  />
                 </div>
                 <button style={this.buttonForm} onClick={this.save}>{id!==null ? 'Update':'Save' }</button>                

@@ -57,6 +57,7 @@ class FlightsBoard extends Component{
         return (
             <div>
             {/* TODO: ADD SEARCH FORM COMPONENT */}
+                {/* <FlightFiltter></FlightFiltter> */}
                 <FlightsList list={this.state.flights} onDelete={this.delete}></FlightsList>
             </div>
         );
