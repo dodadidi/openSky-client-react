@@ -20,15 +20,27 @@ class FeedbacksBoard extends Component{
     this.update = this.update.bind(this);
     }
     componentDidMount(){
-        feedbacksData.map(item => this.add({
+        const that = this;
+        let data = [];
+        async function fetchData () {
+        try {
+        data = await fetch("https://opensky1234.herokuapp.com/api/feedbacks ")
+        .then(res => res.json());
+        } catch(err) {
+        console.log(`Error while fetching data from server: ( ${err})`);
+        }
+        data.map(item => that.add({
             id: item.id,
             _user_id: item._user_id,
             company_name: item.company_name, 
             published_date: item.published_date,
+            feedback: item.feedback,
             rating: item.rating,
-            feedback: item.feedback
         }));
     }
+        fetchData ();
+}
+
     add( {id = null,
         _user_id = 'default user id',
         company_name = 'default company name',
