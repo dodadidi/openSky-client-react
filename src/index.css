@@ -131,6 +131,44 @@ th {
   right: 550px;
 }
 
+/*********************** LOGIN *********************/
+.container {
+  margin: auto;
+  padding: 50px 0;
+  text-align: center;
+}
 
+.container h1 {
+  color: #50a3a2;
+  font-size: 40px;
+  font-weight: 200;
+}
+.GoogleButton{
+  width: 250px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+.container input {
+  background-color: rgba(252, 252, 252, 0.2);
+  width: 250px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+}
 
+.container button,input,googleButton{
+  appearance: none;
+  outline: 0;
+  border: 0.5px solid #50a3a2;
+  padding: 10px 15px;
+  color: #50a3a2;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 18px;
+}
 

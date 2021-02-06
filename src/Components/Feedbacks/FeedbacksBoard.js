@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import feedbacksData from '../../Data/feedbacks.json';
 import FeedbacksList from './FeedbacksList';
 import NewFeedback from './NewFeedback';
 

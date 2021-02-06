@@ -1,18 +1,21 @@
 import React, {Component} from 'react';
-import NavBar from './NavBar';
-import FlightsBoard from './Flights/FlightsBoard';
-// import FeedbacksBoard from './Feedbacks/FeedbacksBoard';
+import LoginForm from './LoginForm';
+// import NavBar from './NavBar';
 import Title from './Title';
+// import FlightsBoard from './Flights/FlightsBoard';
+// import FeedbacksBoard from './Feedbacks/FeedbacksBoard';
+
 
 
 class App extends Component{
     render(){
         return (
             <div className="background">
-                <NavBar/>
+                {/* <NavBar/> */}
                 <Title/>
-                <FlightsBoard/>
-                {/* <FeedbacksBoard/> */}
+                <LoginForm/>
+                {/* <FlightsBoard/>
+                <FeedbacksBoard/> */}
             </div>
         );
     }

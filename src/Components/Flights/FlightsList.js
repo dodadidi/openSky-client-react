@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Flight from './Flight';
 import Table from 'react-bootstrap/Table';
 
-//TODO: 1. fix tabel - header
 class FlightsList extends Component {
     constructor(props){
         super(props);
@@ -20,13 +19,14 @@ class FlightsList extends Component {
                 <Table className='table'>
                 <thead>
                     <tr>
-                        <th>flight_number</th>
-                        <th>departure_date</th>
-                        <th>departure_city</th>
-                        <th>landing_city</th>
-                        <th>company_name</th>
-                        <th>stops</th>
-                        <th>price</th>
+                        <th>Flight Number</th>
+                        <th>Departure Date</th>
+                        <th>Time</th>
+                        <th>Departure City</th>
+                        <th>Landing City</th>
+                        <th>Company Name</th>
+                        <th>Stops</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                     { this.props.list.map(this.eachFlight)}

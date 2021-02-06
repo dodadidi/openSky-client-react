@@ -4,7 +4,7 @@ import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import { Icon } from '@material-ui/core';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 //TODO: 1. conditions 
@@ -33,6 +33,9 @@ class Flight extends Component {
                     {this.props.currentFlight.departure_date}   
                     </td>
                     <td>
+                    {this.props.currentFlight.time}   
+                    </td>
+                    <td>
                         {this.props.currentFlight.departure_city}   
                     </td>    
                     <td>
@@ -53,7 +56,9 @@ class Flight extends Component {
                             <DeleteIcon />
                         </IconButton>
                     </td>
-                    <td><Icon><FavoriteBorderIcon/></Icon></td>
+                    <td>🤍</td>
+                    {/* <td>💗</td> */}
+                    {/* <td><Icon><FavoriteBorderIcon/></Icon></td> */}
                     <td><Icon><ShoppingCartIcon/></Icon></td>
                 </tr>     
         )

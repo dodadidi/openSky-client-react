@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import flightsData from '../../Data/flights.json';
 import FlightsList from './FlightsList';
 
 class FlightsBoard extends Component{
@@ -13,19 +12,33 @@ class FlightsBoard extends Component{
     
     }
     componentDidMount(){
-        flightsData.map(item => this.add({
+        const that = this;
+        let data = [];
+        async function fetchData () {
+        try {
+        // data = await fetch("https://opensky1234.herokuapp.com/api/flights ")
+        data = await fetch("https://localhost:3000/api/flights")
+        .then(res => res.json());
+        } catch(err) {
+        console.log(`Error while fetching data from server: ( ${err})`);
+        }
+        data.map(item => that.add({
             flight_number: item.flight_number,
             departure_date: item.departure_date,
+            time: item.time,
             departure_city: item.departure_city,
             landing_city: item.landing_city,
             company_name: item.company_name,
             stops: item.stops,
-            deparpriceture_city: item.price
+            price: item.price
         }));
     }
+        fetchData ();
+}
 
     add( {flight_number = null, 
         departure_date = 'default departure_date', 
+        time = 'default time', 
         departure_city = 'default departure_city', 
         landing_city = 'default landing_city',
         company_name = 'default company_name',
@@ -37,6 +50,7 @@ class FlightsBoard extends Component{
             ...prevState.flights, {
                 flight_number: flight_number !== null ? flight_number : this.nextId(prevState.flights),
                 departure_date: departure_date,
+                time: time,
                 departure_city: departure_city,
                 landing_city: landing_city,
                 company_name: company_name,
@@ -46,7 +60,6 @@ class FlightsBoard extends Component{
         }))
     }
     
-
     delete(flight_number){
         this.setState(prevState => ({
             flights: prevState.flights.filter(flight => flight.flight_number !== flight_number)
