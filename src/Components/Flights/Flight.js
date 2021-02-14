@@ -8,11 +8,14 @@ import { Icon } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useDispatch, useSelector } from "react-redux";
+import { userService } from "../../Service/UserService";
+import { Flag } from '@material-ui/icons';
 
 export default function Flight({flight}) {
     const [flightUpdate, setFlightUpdate] = useState(false)
     const [isLiked, setIsLiked] = useState(false)
-    const user = useSelector(state => state.userReducer.loggedInUser)
+    const user = useSelector(state => state.userReducer.user)// from redux
+    const [isBuy, setIsBuy] = useState(false)
 
     useEffect(() => {
         EventBus.on('updated', () => {
@@ -28,15 +31,44 @@ export default function Flight({flight}) {
         await flightService.remove(flightNum)
       }
 
-    const onBuy= () =>{
-        prompt("Do you want to but this flight?")
+    const onBuy= (flight) =>{
+        if(window.confirm("Do you want to but this flight?")){//change boolean
+            user.buy_flights = user.buy_flights.filter(flightNumber => flightNumber !== flight.flight_number)
+            user.buy_flights.unshift(flight.flight_number);
+
+            userService.save(user);
+            alert(
+                flight.flight_number
+               //todo flight.stops
+            )
+            console.log(user);
+        } 
     }
 
-    const onIsLiked=()=>{
-        setIsLiked(!isLiked);
-        console.log(user);
+    const onIsLiked=(flightNum)=>{
+        let flag = !isLiked
+        setIsLiked(flag);
+        //console.log(flightNum);
+        if(flag){
+            //for(var i=0; i<user.like_flights.lenght; i++){
+            user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
+            user.like_flights.unshift(flightNum);
+            flight.Liked = true;
+            flightService.save(flight);
+            userService.save(user);
+        }
+        else{
+            user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
+            flight.Liked = false;
+            flightService.save(flight);
+            userService.save(user);
         
+        }       
+        console.log(user)
       }
+
+
+
     return (
         <tr style={{   marginBottom: "14px"}}>
                     <td>
@@ -69,10 +101,14 @@ export default function Flight({flight}) {
                             <DeleteIcon />
                         </IconButton>
                     </td> */}
-                    <td><i onClick={onIsLiked} className={`far fa-heart ${isLiked ? "isLiked" : "notLiked"}`}></i></td>
+                    <td><i onClick={()=>{
+                        onIsLiked(flight.flight_number)
+                    }} className={`far fa-heart ${isLiked ||flight.Liked ? "isLiked" : "notLiked"}`}></i></td>
                     {/* <td>💗</td> */}
                     {/* <td><Icon><FavoriteBorderIcon/></Icon></td> */}
-                    <td><Icon onClick={onBuy}><ShoppingCartIcon/></Icon></td>
+                    <td><Icon onClick={()=>{
+                        onBuy(flight)
+                    }}><ShoppingCartIcon/></Icon></td>
     
             <div className='buttonsfeedbacks'>
             <button onClick={updateFlight}>Update</button>

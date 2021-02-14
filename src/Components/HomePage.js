@@ -30,7 +30,7 @@ class _HomePage extends Component {
           authenticated: true,
           user: responseJson.user
         });
-        saveUser(this.state.user); //send obj user to action
+        this.props.saveUser(this.state.user); //send obj user to action
        // console.log(this.state.user);
       })
       .catch(error => {
