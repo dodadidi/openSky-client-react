@@ -35,6 +35,8 @@ export default function FlightsBoard() {
     setFilterBy(filterObject)  
   }
 
+
+
   if (!flights || flights.length === 0) return <div>Loading...</div> 
   else{
     return (

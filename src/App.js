@@ -7,8 +7,9 @@ import NavBar from './Components/NavBar'
 import FeedbacksBoard from './Components/Feedbacks/FeedbacksBoard'
 import FlightsBoard from './Components/Flights/FlightsBoard'
 import Weather from './Components/Weather/Weather'
+//import { AppRouter } from "./AppRouter";
 
-// const name='Adi'
+
 const App = () => {
   return (
     <Router>

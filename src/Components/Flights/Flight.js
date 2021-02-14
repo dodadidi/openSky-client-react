@@ -2,17 +2,17 @@ import {FlightForm} from './FlightForm'
 import { useState, useEffect, React} from 'react'
 import {flightService} from '../../Service/FlightService'
 import {EventBus} from '../../Service/EventBus'
-
-
 import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-
 import { Icon } from '@material-ui/core';
-// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Flight({flight}) {
     const [flightUpdate, setFlightUpdate] = useState(false)
+    const [isLiked, setIsLiked] = useState(false)
+    const user = useSelector(state => state.userReducer.loggedInUser)
 
     useEffect(() => {
         EventBus.on('updated', () => {
@@ -31,6 +31,12 @@ export default function Flight({flight}) {
     const onBuy= () =>{
         prompt("Do you want to but this flight?")
     }
+
+    const onIsLiked=()=>{
+        setIsLiked(!isLiked);
+        console.log(user);
+        
+      }
     return (
         <tr style={{   marginBottom: "14px"}}>
                     <td>
@@ -63,7 +69,7 @@ export default function Flight({flight}) {
                             <DeleteIcon />
                         </IconButton>
                     </td> */}
-                    <td>🤍</td>
+                    <td><i onClick={onIsLiked} className={`far fa-heart ${isLiked ? "isLiked" : "notLiked"}`}></i></td>
                     {/* <td>💗</td> */}
                     {/* <td><Icon><FavoriteBorderIcon/></Icon></td> */}
                     <td><Icon onClick={onBuy}><ShoppingCartIcon/></Icon></td>
