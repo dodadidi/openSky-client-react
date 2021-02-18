@@ -1,6 +1,7 @@
 import { useState, useEffect, React} from 'react'
 import {flightService} from '../../Service/FlightService'
 import Flight from './Flight'
+import { Link } from 'react-router-dom'
 
 export default function FlightsBoard() {
   const [flights, setFlights] = useState(null)
@@ -41,6 +42,7 @@ export default function FlightsBoard() {
   else{
     return (
       <div className='flightList'>
+        <Link to='/weather'>Weather</Link>
         <div className="main" >
         <input onChange={filterChange} type="text" name="departure_city" placeholder="Departure City"></input>
         <input onChange={filterChange} type="text" name="landing_city" placeholder="Landing City"></input>

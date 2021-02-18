@@ -16,13 +16,22 @@ export default function Flight({flight}) {
     const [isLiked, setIsLiked] = useState(false)
     const user = useSelector(state => state.userReducer.user)// from redux
     const [isBuy, setIsBuy] = useState(false)
+    const [isTemp, setTemp] = useState(false) //flightNumber in user array - likedFlights
 
     useEffect(() => {
         EventBus.on('updated', () => {
             setFlightUpdate(false)
       });
+      checkIfLiked()
     })
 
+    const checkIfLiked=() => {
+        user.like_flights.forEach(likeFlight =>{
+            if (likeFlight === flight.flight_number){
+                setTemp(true)
+            }
+        })
+    }
     const updateFlight=() =>{
         setFlightUpdate(true)
       }
@@ -53,14 +62,16 @@ export default function Flight({flight}) {
             //for(var i=0; i<user.like_flights.lenght; i++){
             user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
             user.like_flights.unshift(flightNum);
-            flight.Liked = true;
-            flightService.save(flight);
+            //flight.Liked = true;
+            //flightService.save(flight);
             userService.save(user);
         }
         else{
+            setTemp(false)
+            setIsLiked(false);
             user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
-            flight.Liked = false;
-            flightService.save(flight);
+            //flight.Liked = false;
+            //flightService.save(flight);
             userService.save(user);
         
         }       
@@ -103,7 +114,7 @@ export default function Flight({flight}) {
                     </td> */}
                     <td><i onClick={()=>{
                         onIsLiked(flight.flight_number)
-                    }} className={`far fa-heart ${isLiked ||flight.Liked ? "isLiked" : "notLiked"}`}></i></td>
+                    }} className={`far fa-heart ${(isLiked || isTemp) ? "isLiked" : "notLiked"}`}></i></td>
                     {/* <td>💗</td> */}
                     {/* <td><Icon><FavoriteBorderIcon/></Icon></td> */}
                     <td><Icon onClick={()=>{

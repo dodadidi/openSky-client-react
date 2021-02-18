@@ -3,6 +3,8 @@ import {feedbackService} from '../../Service/FeedbackService'
 import Feedback from './Feedback'
 import {FeedbackForm} from './FeedbackForm'
 import {EventBus} from '../../Service/EventBus'
+import FeedbackStatistics from '../Statistics/FeedbacksStatistics'
+import { Link } from 'react-router-dom'
 
 export default function FeedbacksBoard() {
   const [feedbacks, setFeedbacks] = useState(null)
@@ -44,6 +46,7 @@ export default function FeedbacksBoard() {
   else{
     return (
       <div className='feedbackList'>
+      <Link to='/feedbackStatistics'>Feedback Statistics</Link>
       <input onChange={filterChange} type="text" name="company_name" placeholder="Company Name"></input>
       <input onChange={filterChange} type="number" min="1" max="5" name="rating" placeholder="Rating"></input>
       <button onClick={addFeedback}>Add</button>
