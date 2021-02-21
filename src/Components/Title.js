@@ -9,7 +9,7 @@ class Title extends Component {
     render() {
         return(
             <div className="d-flex justify-content-center title">
-                    <div className="cloud top-cloud"><img src={cloud} alt="Cloud"/></div>
+                    <div className="cloud top-cloud myCloud"><img src={cloud} alt="Cloud"/></div>
                     <div>
                     <Link to='/' style={{'textDecoration':'none'}}><h1>OpenSky</h1></Link>
 

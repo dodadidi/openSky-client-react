@@ -27,6 +27,7 @@ const FeedbacksStatistics = () => {
       if (event.target.name === "company_name"){
         let counter=0 
         feedbacks.forEach(feedback => {
+          console.log(feedback)
           if (feedback.company_name.toLowerCase() === event.target.value.toLowerCase()){
             counter+=1
             if (feedback.rating === 0) setrate0(rate0+1)
@@ -56,16 +57,16 @@ const FeedbacksStatistics = () => {
 
   return (
     <div>
-      <h4>FeedbacksStatistics</h4>
-      <input onChange={inputChange} type="text" name="company_name" placeholder="Company Name"></input>
-      <p>feedback Counter: {feedbacksCouter}</p>
-      <p>rating0: {rate0}</p>
-      <p>rating1: {rate1}</p>
-      <p>rating2: {rate2}</p>
-      <p>rating3: {rate3}</p>
-      <p>rating4: {rate4}</p>
-      <p>rating5: {rate5}</p>
-      <input onChange={inputChange} type="text" name="published_date" placeholder="mm/dd/yyyy"></input>
+      <h3>Feedbacks Statistics</h3>
+      <input className="inputFlights" onChange={inputChange} type="text" name="company_name" placeholder="Company Name"></input>
+      <p>Number of feedbacks: {feedbacksCouter}</p>
+      <p>rating 0: {rate0}</p>
+      <p>rating 1: {rate1}</p>
+      <p>rating 2: {rate2}</p>
+      <p>rating 3: {rate3}</p>
+      <p>rating 4: {rate4}</p>
+      <p>rating 5: {rate5}</p>
+      <input className="inputFlights" onChange={inputChange} type="text" name="published_date" placeholder="mm/dd/yyyy"></input>
       <p>date Counter: {feedbacksCouter1}</p>
       {/* <a href='/'>Go Back</a> */}
       <Link to='/'>Go Back</Link>
