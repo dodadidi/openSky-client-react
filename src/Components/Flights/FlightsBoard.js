@@ -1,14 +1,15 @@
 import { useState, useEffect, React} from 'react'
 import {flightService} from '../../Service/FlightService'
 import Flight from './Flight'
-import { Link } from 'react-router-dom'
 
 export default function FlightsBoard() {
   const [flights, setFlights] = useState(null)
   const [filterByDepartureCity, setDepartureCity] = useState("")
-  const [filterByPrice, setPrice] = useState("")
+  const [filterByStops, setStop] = useState("")
+  const [filterByflightNumber, setFlightNum] = useState("")
   const [filterByLandingCity, setLandingCity] = useState("")
   const [filterBy, setFilterBy] = useState({})
+  
 
   useEffect(() => {
     getFlights()
@@ -26,27 +27,34 @@ export default function FlightsBoard() {
       setLandingCity(event.target.value)
     } 
     if (event.target.name === "stops"){
-      setPrice(event.target.value)
+      setStop(event.target.value)
+    }
+    if (event.target.name === "flight_number"){
+      setFlightNum(event.target.value)
     }
     const filterObject = {
       departure_city: event.target.name === "departure_city" ? event.target.value : filterByDepartureCity,
       landing_city: event.target.name === "landing_city" ? event.target.value : filterByLandingCity,
-      stops: event.target.name === "stops" ? event.target.value : filterByPrice
+      stops: event.target.name === "stops" ? event.target.value : filterByStops,
+      flight_number: event.target.name === "flight_number" ? event.target.value : filterByflightNumber
     }
     setFilterBy(filterObject)  
   }
 
 
 
-  if (!flights || flights.length === 0) return <div>Loading...</div> 
+  if (!flights) return <div>Loading...</div> 
+  //if (flights.length === 0) return <div>No Results</div> 
   else{
     return (
       <div className='flightList'>
-        <Link to='/weather'>Weather</Link>
         <div className="main" >
-        <input onChange={filterChange} type="text" name="departure_city" placeholder="Departure City"></input>
-        <input onChange={filterChange} type="text" name="landing_city" placeholder="Landing City"></input>
-        <input onChange={filterChange} type="number" min="0" max="5" name="stops" placeholder="Stops"></input>
+        {(flights||flights.length===0)&&<div className="buttons">
+          <input className="inputFlights" onChange={filterChange} type="text" name="departure_city" placeholder="Departure City"></input>
+          <input className="inputFlights" onChange={filterChange} type="text" name="landing_city" placeholder="Landing City"></input>
+          <input className="inputFlights" onChange={filterChange} type="number" min="0" max="5" name="stops" placeholder="Stops"></input>
+          <input className="inputFlights" onChange={filterChange} type="text" name="flight_number" placeholder="Flight Number"></input>
+        </div> }
                 <table className='table'>
                 <thead>
                     <tr>
@@ -60,7 +68,9 @@ export default function FlightsBoard() {
                         <th>Price</th>
                     </tr>
                 </thead>
+                <tbody>
                 {flights.map(flight => <Flight flight = {flight} key={flight.flight_number}/>)}
+                </tbody>
                 </table>
             </div>
       </div>
@@ -69,15 +79,3 @@ export default function FlightsBoard() {
 }
 
 
-
-// const FlightBoard = () => {
-//   return (
-//     <div>
-//       <h4>FlightBoard</h4>
-//       {/* <a href='/'>Go Back</a> */}
-//       <Link to='/'>Go Back</Link>
-//     </div>
-//   )
-// }
-
-// export default FlightBoard

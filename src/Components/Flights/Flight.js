@@ -4,10 +4,11 @@ import {flightService} from '../../Service/FlightService'
 import {EventBus} from '../../Service/EventBus'
 import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import { Icon } from '@material-ui/core';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { userService } from "../../Service/UserService";
 import { Flag } from '@material-ui/icons';
 
@@ -43,14 +44,13 @@ export default function Flight({flight}) {
     const onBuy= (flight) =>{
         if(window.confirm("Do you want to but this flight?")){//change boolean
             user.buy_flights = user.buy_flights.filter(flightNumber => flightNumber !== flight.flight_number)
-            user.buy_flights.unshift(flight.flight_number);
+            user.buy_flights.unshift(flight.flight_number,);
 
             userService.save(user);
-            alert(
-                flight.flight_number
+            alert(`Flight Number: ${
+                flight.flight_number}\nCompany Name: ${flight.company_name}\nDeparture Date: ${flight.departure_date}\nDeparture City: ${flight.departure_city}\nLanding City: ${flight.landing_city}\nStops: ${flight.stops}\nPrice: ${flight.price}`
                //todo flight.stops
             )
-            console.log(user);
         } 
     }
 
@@ -106,25 +106,20 @@ export default function Flight({flight}) {
                     <td>
                         {flight.price}
                     </td>
-                    {/* TODO: IF MANAGER DELETE ELSE LIKE+BUY*/}
-                    {/* <td>
-                        <IconButton aria-label="delete" className="btn btn-primary" onClick={this.delete}>
-                            <DeleteIcon />
-                        </IconButton>
-                    </td> */}
                     <td><i onClick={()=>{
                         onIsLiked(flight.flight_number)
                     }} className={`far fa-heart ${(isLiked || isTemp) ? "isLiked" : "notLiked"}`}></i></td>
-                    {/* <td>💗</td> */}
-                    {/* <td><Icon><FavoriteBorderIcon/></Icon></td> */}
                     <td><Icon onClick={()=>{
                         onBuy(flight)
                     }}><ShoppingCartIcon/></Icon></td>
-    
-            <div className='buttonsfeedbacks'>
-            <button onClick={updateFlight}>Update</button>
-            <button onClick={()=>{deleteFlight(flight.flight_number)}}>Delete</button>
-            </div>
+                    {/* <td>{user.admin&& <button onClick={updateFlight}>Update</button>}</td>       */}
+                    <td>{user.admin&& <IconButton aria-label="edit" className="btn btn-primary" style={{color:'#440047'}} onClick={updateFlight}><EditIcon /></IconButton>}</td>
+                    {/* <td>{user.admin&&<button onClick={()=>{deleteFlight(flight.flight_number)}}>Delete</button>}</td>                    */}
+                    <td>{user.admin&& <IconButton aria-label="delete" className="btn btn-primary" style={{color:'#440047'}} onClick={()=>{deleteFlight(flight.flight_number)}}><DeleteIcon /></IconButton>}</td>
+            {/* <div className='buttonsfeedbacks'>
+           {user.admin&& <button onClick={updateFlight}>Update</button>}
+            {user.admin&&<button onClick={()=>{deleteFlight(flight.flight_number)}}>Delete</button>}
+            </div> */}
             {flightUpdate && <FlightForm flightNum={flight.flight_number}/>}     
             </tr> 
     )

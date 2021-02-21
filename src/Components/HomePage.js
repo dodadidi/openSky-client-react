@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {saveUser} from "../Store/Actions/userAction";
 import { connect } from "react-redux";
+import GoogleButton from 'react-google-button'
+
 
 class _HomePage extends Component {
   state = {
@@ -51,10 +53,10 @@ class _HomePage extends Component {
         />
         <div>
           {!authenticated ? (
-            <h1>Welcome!</h1>
+            <h1></h1>
           ) : (
             <div>
-              <h1> {this.state.user.username}!</h1>
+              <div className= "loginOut name"> {this.state.user.username}!</div>
             </div>
           )}
         </div>

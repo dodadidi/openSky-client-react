@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
+import GoogleButton from 'react-google-button'
+
 
 export default class Login extends Component {
   static propTypes = {
@@ -10,11 +12,11 @@ export default class Login extends Component {
   render() {
     const { authenticated } = this.props;
     return (
-      <ul className="menu">
+      <ul className="menu loginOut">
         {authenticated ? (
-          <li onClick={this._handleLogoutClick}>Logout</li>
+          <li className="logOut" onClick={this._handleLogoutClick}>Logout</li>
         ) : (
-          <li onClick={this._handleSignInClick}>Login</li>
+          <li onClick={this._handleSignInClick}><GoogleButton></GoogleButton></li>
         )}
       </ul>
     );

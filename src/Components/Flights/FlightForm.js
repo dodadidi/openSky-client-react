@@ -4,6 +4,7 @@ import {flightService} from '../../Service/FlightService'
 import { withRouter } from 'react-router-dom';
 import {EventBus} from '../../Service/EventBus'
 import { PersonPinCircleRounded } from '@material-ui/icons';
+import CloseIcon from '@material-ui/icons/Close';
 
 function _FlightForm(props) {
     const [flightObj, setFlightObj]  = useState(null)
@@ -47,15 +48,26 @@ function _FlightForm(props) {
         EventBus.emit('updated')
     }
 
+    const onClose =() =>{
+        EventBus.emit('added')
+        EventBus.emit('updated')
+    }
     return (
         <div className="modal-wrapper">
             <div className="modal-content">
-                <form >
+            <form className="form">
+                <div>
+                <TextField error={ true } id="outlined-basic" label="Price" name="price" variant="outlined" defaultValue={price} onChange={onInputChange} />
+                <button style={{backgroundColor: '#ED4D47', border: '0',color: 'White',borderRadius: '5px',width: '100px',height: '40px',fontWeight: 'bold',fontSize: '1rem',marginTop:'5px'}}onClick={onSubmit}>Save</button>   
+                    <CloseIcon onClick={onClose}></CloseIcon>   
+                </div>
+            </form>
+                {/* <form >
                     <div>
                     <input error={ true } id="outlined-basic" label="Price" name="price" variant="outlined" defaultValue={price} onChange={onInputChange}/>
                     </div>
                     <button onClick={onSubmit}>Save</button>             
-                </form>
+                </form> */}
             </div>
         </div>
     )
