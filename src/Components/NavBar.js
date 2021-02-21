@@ -2,6 +2,7 @@ import * as React from "react"
 import { AppBar, Toolbar, IconButton, List, ListItem, ListItemText } from "@material-ui/core"
 import { Home } from "@material-ui/icons"
 import { makeStyles } from "@material-ui/core"
+import { HomePage } from "../Components/HomePage"
 
 const useStyles = makeStyles({
     MuiAppBarColorPrimary: {
@@ -49,9 +50,11 @@ const NavBar = () => {
                             <a href={path} key={title} className={classes.linkText}>
                                 <ListItem button>
                                     <ListItemText primary={title} />
+
                                 </ListItem>
                             </a>
                         ))}
+                        <HomePage/>
                     </List>
                 </List>
                 {/* Add code end */}

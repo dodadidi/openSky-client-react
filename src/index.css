@@ -13,11 +13,11 @@
 }
 /******************** MAIN ********************/
 .container {
-  max-width: 80%;
+  max-width: 85%;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  /* border: 1px solid steelblue; */
   padding: 40px;
   /* border-radius: 5px; */
 }
@@ -91,8 +91,46 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
+/******************** FLIGHTS ********************/
+.buttons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  /* position: relative;
+  left: 30%; */
+
+}
+.inputFlights{
+  background: #f4f4f4;
+	justify-content: space-around;
+	align-items: center;
+	margin: 20px;
+  border: 1px solid #440047;
+  border-radius: 5px;
+  max-height: 20px;
+}
+
+.table {
+	width: 80vw;
+	margin: 0 auto;
+	background-color: rgb(217, 204, 209);
+}
+
+tbody {
+	background-color: #F1F1F1;
+}
+
+td {
+	text-align: center;
+  padding: 5px;
+}
 
 /******************** FEEDBACKS ********************/
+/* span{
+  padding-right: 20px;
+  text-align: center;
+} */
 .buttonsFeedbacks{
   position: relative;
   float: right;
@@ -134,10 +172,46 @@ footer {
 .modal-content {
   background: white;
   width: 250px;
-  min-height: 130px;
+  height: 300px;
   position: relative;
   padding-top: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   text-align: center;
+}
+
+.isLiked{
+  color: red;
+}
+ .loginOut{
+  list-style: none;
+  position:relative;
+  left: 1200px;
+} 
+
+/* .name {
+  margin-top: 15px;
+}    */
+
+.myCloud{
+margin-top: 20px;
+}
+
+.linkHomePage {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.name{
+  position:absolute;
+  bottom: 25px;
+  left: 1000px;
+}
+.logOut{
+  position:absolute;
+  bottom: 25px;
+}
+@media only screen and (max-width: 990px) {
+  .myCloud, .bottom-cloud{
+    display:none;
+  }
 }
