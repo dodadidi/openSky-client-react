@@ -22,12 +22,12 @@ export default class Login extends Component {
   }
 
   _handleSignInClick = () => {
-    window.open("https://opensky12345.herokuapp.com/auth/google", "_self");
+    window.open("http://opensky12345.herokuapp.com/auth/google", "_self");
   };
 
   _handleLogoutClick = () => {
     // Set authenticated state to false in the HomePage component
-    window.open("https://opensky12345.herokuapp.com/auth/logout", "_self");
+    window.open("http://opensky12345.herokuapp.com/auth/logout", "_self");
     this.props.handleNotAuthenticated();
   };
 }
