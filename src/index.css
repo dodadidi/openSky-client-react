@@ -31,7 +31,7 @@ h1{
 	/* font-size: 100px; */
 	font-size: 470%;
 }
-h3{
+h3, .paragraph{
 	color:#440047;
 	/* font-size: 30px; */
 	font-size: 160%;
@@ -195,11 +195,12 @@ td {
 .myCloud{
 margin-top: 20px;
 }
-/* # ### NAVBAE ####*/
+/* # ### NAVBAR ####*/
 .linkHomePage {
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
+
 .name{
   position:absolute;
   bottom: 25px;

@@ -4,10 +4,7 @@ import {feedbackService} from '../../Service/FeedbackService'
 import { withRouter } from 'react-router-dom';
 import {EventBus} from '../../Service/EventBus'
 import CloseIcon from '@material-ui/icons/Close';
-// import Typography from '@material-ui/core/Typography';
-// import Slider from '@material-ui/core/Slider';
-// import { Select } from '@material-ui/core';
-// import MenuItem from '@material-ui/core/MenuItem';
+import { useSelector } from "react-redux";
 
 
 function _FeedbackForm(props) {
@@ -16,6 +13,7 @@ function _FeedbackForm(props) {
     const [feedback, setFeedback]  = useState('')
     const [rating, setRating]  = useState('')
     const [count, setCount]  = useState(0)
+    const user = useSelector(state => state.userReducer.user)// from redux
 
     useEffect(() => {
         if(props.feedbackId && count===0){
@@ -48,7 +46,7 @@ function _FeedbackForm(props) {
         event.preventDefault();
         const feedbackForSave={
             id:feedbackObj ? feedbackObj.id : null,
-            user_id: 25893, //temp id
+            user_id: user.googleId,
             company_name: companyName,
             feedback: feedback,
             rating: rating

@@ -48,11 +48,11 @@ export default function FeedbacksBoard() {
   else{
     return (
       <div className='feedbackList'>
-      {user.admin&&<Link to='/feedbackStatistics'>Feedback Statistics</Link>}
+      {user.admin&&<button style={{backgroundColor: '#440047', border: '0',borderRadius: '5px',width: '100px',height: '60px',fontSize: '1rem',marginTop:'5px', marginBottom:'20px'}} ><Link to='/feedbackStatistics' style={{color: 'White', textDecoration: 'none'}}>Feedback Statistics</Link></button>}
       <input className="inputFlights" onChange={filterChange} type="text" name="company_name" placeholder="Company Name"></input>
       <input className="inputFlights" onChange={filterChange} type="number" min="1" max="5" name="rating" placeholder="Rating"></input>
       {/* <button onClick={addFeedback}>Add</button> */}
-      <button style={{backgroundColor: '#440047', border: '0',color: 'White',borderRadius: '5px',width: '55px',height: '30px',fontWeight: 'bold',fontSize: '1rem',marginTop:'5px'}} onClick={addFeedback}>Add</button>   
+      <button style={{backgroundColor: '#440047', border: '0',color: 'White',borderRadius: '5px',width: '55px',height: '30px',fontSize: '1rem',marginTop:'5px'}} onClick={addFeedback}>Add</button>   
         {feedbackAdd && <FeedbackForm />}
       <div>
       <table className='table'>
