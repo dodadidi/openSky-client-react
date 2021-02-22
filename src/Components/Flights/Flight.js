@@ -65,7 +65,6 @@ export default function Flight({ flight }) {
             userService.save(user);
 
         }
-        console.log(user)
     }
 
 

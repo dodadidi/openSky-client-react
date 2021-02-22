@@ -3,6 +3,5 @@ export function saveUser(user) {
 
         dispatch({ type: 'SET_USER', user })
         console.log(user)
-
     }
 }

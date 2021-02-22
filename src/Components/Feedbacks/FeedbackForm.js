@@ -29,7 +29,6 @@ function _FeedbackForm(props) {
     })
     const onInputChange=(event) =>{
         let name = event.target.name;
-        console.log(name)
         let value = event.target.value;
         if (name === 'companyName'){
             setCompanyName(value)

@@ -1,4 +1,3 @@
-import Feedback from '../Components/Feedbacks/Feedback';
 import HttpService from './httpService'
 
 export const feedbackService = {
