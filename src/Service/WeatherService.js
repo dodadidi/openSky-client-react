@@ -7,6 +7,9 @@ export const weatherService = {
   
   function getByCity(cityName='') {
     let queryStr = '?';
+    // for (const key in cityName) {
+    //   queryStr += `${key}=${cityName[key]}&`;
+    // }
     queryStr+=cityName;
     
     console.log(queryStr);

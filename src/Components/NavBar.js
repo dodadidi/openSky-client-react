@@ -32,15 +32,12 @@ const NavBar = () => {
     const classes = useStyles(); // Add this
     const user = useSelector(state => state.userReducer.user)// from redux
     return (
-        <AppBar position="static" style={{ backgroundColor: `#373a40`}} classNAme='navbar'>
+        <AppBar position="static" style={{ backgroundColor: `#373a40`}}>
             <Toolbar>
               <Link to="/">  <IconButton className="linkHomePage" edge="start" color="inherit" aria-label="home">
                     <Home className="linkHomePage" fontSize="large" />
                 </IconButton></Link>
-<<<<<<< Updated upstream
                 {/* Add code */}
-=======
->>>>>>> Stashed changes
                 <List component="nav" aria-labelledby="main navigation">
                 
                    {user&&<List
@@ -60,6 +57,7 @@ const NavBar = () => {
                     </List>}
                     <HomePage className="homePage"/>
                 </List>
+                {/* Add code end */}
             </Toolbar>
         </AppBar>
     )

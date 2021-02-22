@@ -3,7 +3,7 @@ import { useState, useEffect, React} from 'react'
 import {flightService} from '../../Service/FlightService'
 import { withRouter } from 'react-router-dom';
 import {EventBus} from '../../Service/EventBus'
-import { PersonPinCircleRounded } from '@material-ui/icons';
+// import { PersonPinCircleRounded } from '@material-ui/icons';
 import CloseIcon from '@material-ui/icons/Close';
 
 function _FlightForm(props) {
@@ -62,15 +62,6 @@ function _FlightForm(props) {
                     <CloseIcon onClick={onClose}></CloseIcon>   
                 </div>
             </form>
-<<<<<<< Updated upstream
-                {/* <form >
-                    <div>
-                    <input error={ true } id="outlined-basic" label="Price" name="price" variant="outlined" defaultValue={price} onChange={onInputChange}/>
-                    </div>
-                    <button onClick={onSubmit}>Save</button>             
-                </form> */}
-=======
->>>>>>> Stashed changes
             </div>
         </div>
     )

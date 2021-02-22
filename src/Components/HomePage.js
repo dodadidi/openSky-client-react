@@ -1,13 +1,9 @@
 import Login from "./Login";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {saveUser} from "../Store/Actions/userAction";
 import { connect } from "react-redux";
-<<<<<<< Updated upstream
 import GoogleButton from 'react-google-button'
-=======
-// import GoogleButton from 'react-google-button'
->>>>>>> Stashed changes
 
 
 class _HomePage extends Component {
@@ -37,6 +33,7 @@ class _HomePage extends Component {
           user: responseJson.user
         });
         this.props.saveUser(this.state.user); //send obj user to action
+       // console.log(this.state.user);
       })
       .catch(error => {
         this.setState({

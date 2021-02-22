@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {weatherService} from '../../Service/WeatherService'
 import { useState, useEffect, React} from 'react'
 import { flightService} from '../../Service/FlightService';
 import moment from 'moment';
 import Flight from '../Flights/Flight'
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+// import WbSunnyIcon from '@material-ui/icons/WbSunny';
+// import BeachAccessIcon from '@material-ui/icons/BeachAccess';
 
 
 const Weather = () => {
@@ -30,7 +30,6 @@ const getFlights =async () => {
   }
   const flightsData = await flightService.query(filterObj);
   setFlights(flightsData)
-  console.log(flightsData);
  setToday(dateToday);
 }
 
@@ -38,13 +37,10 @@ const getFlights =async () => {
   const getWeather= async () =>{
    
     const data = await weatherService.getByCity(city)
-    console.log('test!',data)
     setWeather(data);
     setTemp(data.main.temp)
     setDescription(data.weather[0].description)
     setIcon(data.weather[0].icon)
-    console.log('weather!',weather);
-    console.log(today);
   }
   const onInputCityChange = (ev)=> {
     setCity(ev.target.value);

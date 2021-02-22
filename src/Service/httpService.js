@@ -4,6 +4,9 @@ const BASE_URL = process.env.NODE_ENV === 'production' ?
     '/api/' :
     'http://localhost:8080/api/'
     
+// var axios = Axios.create({
+//     withCredentials: true
+// });
 var axios = Axios
 
 export default {

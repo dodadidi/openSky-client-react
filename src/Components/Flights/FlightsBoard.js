@@ -44,21 +44,12 @@ export default function FlightsBoard() {
 
 
   if (!flights) return <div>Loading...</div> 
-<<<<<<< Updated upstream
   //if (flights.length === 0) return <div>No Results</div> 
   else{
     return (
       <div className='flightList'>
         <div className="main" >
         {(flights||flights.length===0)&&<div className="buttons">
-=======
-  else{
-    return (
-      <div>
-        <div className="main" >
-        <h3 className="center" style={{marginBottom:'10px auto'}}>Flights Board</h3>
-        {(flights||flights.length===0)&&<div className="center">
->>>>>>> Stashed changes
           <input className="inputFlights" onChange={filterChange} type="text" name="departure_city" placeholder="Departure City"></input>
           <input className="inputFlights" onChange={filterChange} type="text" name="landing_city" placeholder="Landing City"></input>
           <input className="inputFlights" onChange={filterChange} type="number" min="0" max="5" name="stops" placeholder="Stops"></input>

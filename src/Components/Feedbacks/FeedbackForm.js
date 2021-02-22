@@ -68,6 +68,7 @@ function _FeedbackForm(props) {
             <div className="modal-content">
                 <form >
                 <CloseIcon onClick={onClose}></CloseIcon>   
+
                     <div>
                     <TextField style={{marginBottom:"5px"}} error={ true } id="outlined-basic" label="Company Name" name="companyName" variant="outlined" defaultValue={companyName} onChange={onInputChange} />
                     </div>
@@ -77,6 +78,22 @@ function _FeedbackForm(props) {
                     <div>
                     <TextField style={{width:"90%"}} error={ true } id="outlined-basic" type="number" inputProps={{ min: 0, max: 5 }} label="Rating" name="rating" variant="outlined" defaultValue={rating} onChange={onInputChange}/>
                     </div>
+                    {/* <Select
+          labelId="demo-customized-select-label"
+          id="demo-customized-select"
+          value={rating}
+          onChange={onInputChange}
+        >
+          <MenuItem value="">
+          </MenuItem>
+          <MenuItem value={0}>0</MenuItem>
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+          <MenuItem value={4}>4</MenuItem>
+          <MenuItem value={5}>5</MenuItem>
+        </Select> */}
+
                     <button style={{backgroundColor: '#ED4D47', border: '0',color: 'White',borderRadius: '5px',width: '100px',height: '40px',fontWeight: 'bold',fontSize: '1rem',marginTop:'5px'}}onClick={onSubmit}>Save</button>   
                 </form>
             </div>

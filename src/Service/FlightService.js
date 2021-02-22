@@ -1,4 +1,4 @@
-// import Flight from '../Components/Flights/Flight';
+import Flight from '../Components/Flights/Flight';
 import HttpService from './httpService'
 
 export const flightService = {
@@ -16,6 +16,10 @@ export const flightService = {
     }
     return HttpService.get(`flights${queryStr || ''}`);
   }
+  
+  // function query() {
+  //   return HttpService.get(`flight`);
+  // }
   
   function getById(flightNum) {
     return HttpService.get(`flights/${flightNum}`)
