@@ -11,7 +11,7 @@ class _HomePage extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8080/auth/login/success", {
+    fetch("https://opensky12345.herokuapp.com/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
