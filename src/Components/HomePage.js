@@ -1,10 +1,7 @@
 import Login from "./Login";
-import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {saveUser} from "../Store/Actions/userAction";
+import { saveUser } from "../Store/Actions/userAction";
 import { connect } from "react-redux";
-import GoogleButton from 'react-google-button'
-
 
 class _HomePage extends Component {
   state = {
@@ -33,7 +30,6 @@ class _HomePage extends Component {
           user: responseJson.user
         });
         this.props.saveUser(this.state.user); //send obj user to action
-       // console.log(this.state.user);
       })
       .catch(error => {
         this.setState({
@@ -55,10 +51,10 @@ class _HomePage extends Component {
           {!authenticated ? (
             <h1></h1>
           ) : (
-            <div>
-              <div className= "loginOut name"> {this.state.user.username}!</div>
-            </div>
-          )}
+              <div>
+                <div className="loginOut name"> {this.state.user.username}!</div>
+              </div>
+            )}
         </div>
       </div>
     );
@@ -76,7 +72,7 @@ const mapStateToProps = (state) => { //reduser state change to props
 };
 
 const mapDispatchToProps = { //func from action change to props
- saveUser
+  saveUser
 };
 
 export const HomePage = connect(mapStateToProps, mapDispatchToProps)(_HomePage);

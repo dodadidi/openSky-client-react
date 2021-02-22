@@ -20,6 +20,9 @@ const useStyles = makeStyles({
   navDisplayFlex: {
     display: `flex`,
     justifyContent: `space-between`,
+    position: `relative`,
+    left: `70px`,
+    bottom: `20px`,
   },
   linkText: {
     textDecoration: `none`,
@@ -36,29 +39,26 @@ const navLinks = [
 ];
 
 const NavBar = () => {
-  const classes = useStyles(); // Add this
+  const classes = useStyles();
   const user = useSelector((state) => state.userReducer.user); // from redux
   return (
     <AppBar position="static" style={{ backgroundColor: `#373a40` }}>
       <Toolbar className="toolBar">
-        <Link to="/">
-          {" "}
-          <IconButton
-            className="linkHomePage"
-            edge="start"
-            color="inherit"
-            aria-label="home"
-          >
-            <Home className="linkHomePage" fontSize="large" />
-          </IconButton>
-        </Link>
-        {/* Add code */}
         <List component="nav" aria-labelledby="main navigation">
+          <Link to="/">
+            <IconButton
+              className="linkHomePage"
+              edge="start"
+              color="inherit"
+              aria-label="home">
+              <Home className="linkHomePage" fontSize="large" />
+            </IconButton>
+          </Link>
           {user && (
             <List
               component="nav"
               aria-labelledby="main navigation"
-              className={classes.navDisplayFlex} // this
+              className={classes.navDisplayFlex}
             >
               {navLinks.map(({ title, path }) => (
                 <a href={path} key={title} className={classes.linkText}>
@@ -71,7 +71,6 @@ const NavBar = () => {
           )}
           <HomePage className="homePage" />
         </List>
-        {/* Add code end */}
       </Toolbar>
     </AppBar>
   );

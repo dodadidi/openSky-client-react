@@ -9,7 +9,6 @@
   position: absolute;
   width: 100%;
   min-height: 100vh;
-  /* min-height: 200vh; */
 	background: linear-gradient(to top,#a3d8f4, #DACDFF, #FBD9E2, #FFEEC4);
 }
 /******************** MAIN ********************/
@@ -25,28 +24,26 @@
 .title {
 	text-align: center;
 	position:relative;
+  margin-top: 5%;
 }
 h1{
 	color:#440047;
-	/* font-size: 100px; */
 	font-size: 470%;
 }
 h3, .paragraph{
 	color:#440047;
-	/* font-size: 30px; */
 	font-size: 160%;
 }
 
 .bottom-cloud{
 	position:absolute;
 	left:20%;
-	top:65%;
+	top:75%;
 }
 
 .top-cloud{
   position:absolute;
   right: 20%;
-	top: -5%;
 }
 
 .cloud{
@@ -85,21 +82,9 @@ h3, .paragraph{
   font-family: inherit;
 }
 
-footer {
-  /*TODO: FIX*/
-  /* position: absolute;
-  bottom: 0; */
-  margin-top: 200px;
-  text-align: center;
-}
+
 /******************** FLIGHTS ********************/
 .center{
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  /* position: relative;
-  left: 30%; */
   text-align: center;
   color:#440047;
   flex-wrap: wrap;
@@ -131,10 +116,6 @@ td {
 }
 
 /******************** FEEDBACKS ********************/
-/* span{
-  padding-right: 20px;
-  text-align: center;
-} */
 .buttonsFeedbacks{
   position: relative;
   float: right;
@@ -188,36 +169,46 @@ td {
   color: red;
 }
 
-/* .name {
-  margin-top: 15px;
-}    */
-
 .myCloud{
 margin-top: 20px;
 }
-/* # ### NAVBAR ####*/
+
+/******************** NAVBAR ********************/
 .linkHomePage {
   text-decoration: none;
   color: rgb(255, 255, 255);
+  position: relative;
+  top: 20px;
 }
 
 .name{
   position:absolute;
-  bottom: 25px;
+  bottom: 70px;
   float:left;
   width: 100%;
-  /* left: 1000px; */
+  font-size: small;
+  left: 80px;
+
 }
+
 .logOut{
   position:absolute;
-  bottom: 25px;
+  font-size: small;
+  left: 80px;
+  bottom: 40px;
 }
+
 .loginOut{
   list-style: none;
   position:relative;
-  /* left: 1200px; */
   margin-left: 100%;
 } 
+
+.googleButten{
+  position: relative;
+  bottom: 30px;
+  left: 1350px;
+}
 .weatherCard{
   text-align: center;
   color:#440047;
@@ -225,7 +216,11 @@ margin-top: 20px;
   flex-wrap: wrap;
   margin: 0 auto;
 }
-/*# #### STATISTICS ####*/
+
+.MuiPaper-root{
+  height: 80px;
+}
+/******************** STATISTICS ********************/
 .card{
   text-align: center;
   background-color: rgb(217, 204, 209);
