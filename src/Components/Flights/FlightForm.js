@@ -62,12 +62,15 @@ function _FlightForm(props) {
                     <CloseIcon onClick={onClose}></CloseIcon>   
                 </div>
             </form>
+<<<<<<< Updated upstream
                 {/* <form >
                     <div>
                     <input error={ true } id="outlined-basic" label="Price" name="price" variant="outlined" defaultValue={price} onChange={onInputChange}/>
                     </div>
                     <button onClick={onSubmit}>Save</button>             
                 </form> */}
+=======
+>>>>>>> Stashed changes
             </div>
         </div>
     )

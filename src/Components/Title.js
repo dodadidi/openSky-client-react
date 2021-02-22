@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import cloud from '../Images/cloud.png'
 import { Link } from 'react-router-dom'
 
-//TODO: 1. FONT-SIZE - CSS
-//      2. CLOUDS-SIZE - CSS
 
 class Title extends Component {
     render() {

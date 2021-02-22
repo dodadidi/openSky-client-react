@@ -9,7 +9,10 @@ import FeedbacksBoard from './Components/Feedbacks/FeedbacksBoard'
 import FlightsBoard from './Components/Flights/FlightsBoard'
 import Weather from './Components/Weather/Weather'
 import FeedbackStatistics from './Components/Statistics/FeedbacksStatistics'
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 //import { AppRouter } from "./AppRouter";
 

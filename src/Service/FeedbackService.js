@@ -1,4 +1,4 @@
-import Feedback from '../Components/Feedbacks/Feedback';
+// import Feedback from '../Components/Feedbacks/Feedback';
 import HttpService from './httpService'
 
 export const feedbackService = {
@@ -9,17 +9,12 @@ export const feedbackService = {
   }
   
   function query(filterBy = {}) {
-    console.log(filterBy); //TODO: DELETE
     let queryStr = '?';
     for (const key in filterBy) {
       queryStr += `${key}=${filterBy[key]}&`;
     }
     return HttpService.get(`feedbacks${queryStr || ''}`);
   }
-  
-  // function query() {
-  //   return HttpService.get(`feedback`);
-  // }
   
   function getById(feedbackId) {
     return HttpService.get(`feedbacks/${feedbackId}`)

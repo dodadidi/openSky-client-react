@@ -8,7 +8,8 @@
 .body{
   position: absolute;
   width: 100%;
-  min-height: 200vh;
+  min-height: 100vh;
+  /* min-height: 200vh; */
 	background: linear-gradient(to top,#a3d8f4, #DACDFF, #FBD9E2, #FFEEC4);
 }
 /******************** MAIN ********************/
@@ -17,16 +18,13 @@
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  /* border: 1px solid steelblue; */
   padding: 40px;
-  /* border-radius: 5px; */
 }
 
 /******************** TITLE ********************/
 .title {
 	text-align: center;
 	position:relative;
-  
 }
 h1{
 	color:#440047;
@@ -88,18 +86,24 @@ h3{
 }
 
 footer {
-  margin-top: 30px;
+  /*TODO: FIX*/
+  /* position: absolute;
+  bottom: 0; */
+  margin-top: 200px;
   text-align: center;
 }
 /******************** FLIGHTS ********************/
-.buttons{
-  display: flex;
+.center{
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
   /* position: relative;
   left: 30%; */
-
+  text-align: center;
+  color:#440047;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 .inputFlights{
   background: #f4f4f4;
@@ -183,11 +187,6 @@ td {
 .isLiked{
   color: red;
 }
- .loginOut{
-  list-style: none;
-  position:relative;
-  left: 1200px;
-} 
 
 /* .name {
   margin-top: 15px;
@@ -196,7 +195,7 @@ td {
 .myCloud{
 margin-top: 20px;
 }
-
+/* # ### NAVBAE ####*/
 .linkHomePage {
   text-decoration: none;
   color: rgb(255, 255, 255);
@@ -204,12 +203,43 @@ margin-top: 20px;
 .name{
   position:absolute;
   bottom: 25px;
-  left: 1000px;
+  float:left;
+  width: 100%;
+  /* left: 1000px; */
 }
 .logOut{
   position:absolute;
   bottom: 25px;
 }
+.loginOut{
+  list-style: none;
+  position:relative;
+  /* left: 1200px; */
+  margin-left: 100%;
+} 
+.weatherCard{
+  text-align: center;
+  color:#440047;
+  width: 550px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+/*# #### STATISTICS ####*/
+.card{
+  text-align: center;
+  background-color: rgb(217, 204, 209);
+  border-color:#403c41;
+  color:#440047;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 550px;
+  min-height: 400px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  
+}
+
 @media only screen and (max-width: 990px) {
   .myCloud, .bottom-cloud{
     display:none;

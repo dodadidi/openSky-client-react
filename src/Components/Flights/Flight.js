@@ -6,17 +6,17 @@ import { IconButton } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { Icon } from '@material-ui/core';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+// import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useSelector } from "react-redux";
 import { userService } from "../../Service/UserService";
-import { Flag } from '@material-ui/icons';
+// import { Flag } from '@material-ui/icons';
 
 export default function Flight({flight}) {
     const [flightUpdate, setFlightUpdate] = useState(false)
     const [isLiked, setIsLiked] = useState(false)
     const user = useSelector(state => state.userReducer.user)// from redux
-    const [isBuy, setIsBuy] = useState(false)
+    // const [isBuy, setIsBuy] = useState(false)
     const [isTemp, setTemp] = useState(false) //flightNumber in user array - likedFlights
 
     useEffect(() => {
@@ -49,7 +49,10 @@ export default function Flight({flight}) {
             userService.save(user);
             alert(`Flight Number: ${
                 flight.flight_number}\nCompany Name: ${flight.company_name}\nDeparture Date: ${flight.departure_date}\nDeparture City: ${flight.departure_city}\nLanding City: ${flight.landing_city}\nStops: ${flight.stops}\nPrice: ${flight.price}`
+<<<<<<< Updated upstream
                //todo flight.stops
+=======
+>>>>>>> Stashed changes
             )
         } 
     }
@@ -57,25 +60,18 @@ export default function Flight({flight}) {
     const onIsLiked=(flightNum)=>{
         let flag = !isLiked
         setIsLiked(flag);
-        //console.log(flightNum);
         if(flag){
-            //for(var i=0; i<user.like_flights.lenght; i++){
             user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
             user.like_flights.unshift(flightNum);
-            //flight.Liked = true;
-            //flightService.save(flight);
             userService.save(user);
         }
         else{
             setTemp(false)
             setIsLiked(false);
             user.like_flights = user.like_flights.filter(flightNumber => flightNumber !== flightNum)
-            //flight.Liked = false;
-            //flightService.save(flight);
             userService.save(user);
         
         }       
-        console.log(user)
       }
 
 
@@ -112,6 +108,7 @@ export default function Flight({flight}) {
                     <td><Icon onClick={()=>{
                         onBuy(flight)
                     }}><ShoppingCartIcon/></Icon></td>
+<<<<<<< Updated upstream
                     {/* <td>{user.admin&& <button onClick={updateFlight}>Update</button>}</td>       */}
                     <td>{user.admin&& <IconButton aria-label="edit" className="btn btn-primary" style={{color:'#440047'}} onClick={updateFlight}><EditIcon /></IconButton>}</td>
                     {/* <td>{user.admin&&<button onClick={()=>{deleteFlight(flight.flight_number)}}>Delete</button>}</td>                    */}
@@ -120,6 +117,10 @@ export default function Flight({flight}) {
            {user.admin&& <button onClick={updateFlight}>Update</button>}
             {user.admin&&<button onClick={()=>{deleteFlight(flight.flight_number)}}>Delete</button>}
             </div> */}
+=======
+                    <td>{user.admin&& <IconButton aria-label="edit" className="btn btn-primary" style={{color:'#440047'}} onClick={updateFlight}><EditIcon /></IconButton>}</td>
+                    <td>{user.admin&& <IconButton aria-label="delete" className="btn btn-primary" style={{color:'#440047'}} onClick={()=>{deleteFlight(flight.flight_number)}}><DeleteIcon /></IconButton>}</td>
+>>>>>>> Stashed changes
             {flightUpdate && <FlightForm flightNum={flight.flight_number}/>}     
             </tr> 
     )
