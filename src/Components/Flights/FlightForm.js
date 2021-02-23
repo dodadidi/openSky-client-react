@@ -1,11 +1,10 @@
 import { TextField } from '@material-ui/core';
 import { useState, useEffect, React } from 'react'
 import { flightService } from '../../Service/FlightService'
-import { withRouter } from 'react-router-dom';
 import { EventBus } from '../../Service/EventBus'
 import CloseIcon from '@material-ui/icons/Close';
 
-function _FlightForm(props) {
+export function FlightForm(props) {
     const [flightObj, setFlightObj] = useState(null)
     const [price, setPrice] = useState('')
     const [count, setCount] = useState(0)
@@ -66,4 +65,3 @@ function _FlightForm(props) {
     )
 }
 
-export const FlightForm = withRouter(_FlightForm)

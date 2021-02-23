@@ -3,18 +3,15 @@ import { useState, React } from 'react'
 
 const FeedbacksStatistics = () => {
   const [feedbacks, setFeedbacks] = useState(null)
-  const [feedbacksCouter, setFeedbacksCounter] = useState(0)
   const [rate0, setrate0] = useState(0)
   const [rate1, setrate1] = useState(0)
   const [rate2, setrate2] = useState(0)
   const [rate3, setrate3] = useState(0)
   const [rate4, setrate4] = useState(0)
   const [rate5, setrate5] = useState(0)
-  const [feedbacksCouter1, setFeedbacksCounter1] = useState(0);
   const [filterBy, setFilterBy] = useState({})
   const [company_name, setCompanyName] = useState('')
   const [published_date, setPublishedDate] = useState('')
-  const [flag, setFlag] = useState(false)
 
   const getFeedbacks = async (test) => {
 

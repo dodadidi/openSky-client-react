@@ -14,7 +14,6 @@ export default function Flight({ flight }) {
     const [flightUpdate, setFlightUpdate] = useState(false)
     const [isLiked, setIsLiked] = useState(false)
     const user = useSelector(state => state.userReducer.user)// from redux
-    const [isBuy, setIsBuy] = useState(false)
     const [isTemp, setTemp] = useState(false) //flightNumber in user array - likedFlights
 
     useEffect(() => {
