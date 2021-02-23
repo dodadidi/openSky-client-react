@@ -54,7 +54,7 @@ const NavBar = () => {
               <Home className="linkHomePage" fontSize="large" />
             </IconButton>
           </Link>
-          {/* {user && ( */}
+          {user && (
             <List
               component="nav"
               aria-labelledby="main navigation"
@@ -68,7 +68,7 @@ const NavBar = () => {
                 </a>
               ))}
             </List>
-          {/* )} */}
+          )}
           <HomePage className="homePage" />
         </List>
       </Toolbar>

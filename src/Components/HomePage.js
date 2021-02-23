@@ -25,7 +25,6 @@ class _HomePage extends Component {
         throw new Error("failed to authenticate user");
       })
       .then(responseJson => {
-          console.log(document.cookie);
         this.setState({
           authenticated: true,
           user: responseJson.user
