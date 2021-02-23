@@ -1,9 +1,9 @@
 import Axios from 'axios';
 
-const BASE_URL = process.env.NODE_ENV === 'production' ?
-    '/' :
-    'https://opensky12345.herokuapp.com/'
-
+// const BASE_URL = process.env.NODE_ENV === 'production' ?
+//     '/' :
+//     'https://opensky12345.herokuapp.com/'
+const BASE_URL = process.env.NODE_ENV === 'https://opensky12345.herokuapp.com'
 
 var axios = Axios
 
