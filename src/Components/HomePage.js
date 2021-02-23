@@ -2,7 +2,6 @@ import Login from "./Login";
 import React, { Component } from "react";
 import { saveUser } from "../Store/Actions/userAction";
 import { connect } from "react-redux";
-import axios from 'axios';
 
 class _HomePage extends Component {
   state = {
@@ -12,25 +11,15 @@ class _HomePage extends Component {
   };
 
   componentDidMount() {
-    // fetch("https://opensky12345.herokuapp.com/auth/login/success", {
-    //   method: "GET",
-    //   // credentials: "include",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Credentials": true
-    //   }
-    // })
-    axios.get("https://opensky12345.herokuapp.com/auth/login/success", {
-      withCredentials: true,
-      credentials: 'include',
-      // headers: {
-      //   Accept: "application/json",
-      //   "Content-Type": "application/json",
-      //   "Access-Control-Allow-Credentials": true
-      // }
+    fetch("https://opensky12345.herokuapp.com/auth/login/success", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      }
     })
-
       .then(response => {
         if (response.status === 200) return response.json();
         throw new Error("failed to authenticate user");
